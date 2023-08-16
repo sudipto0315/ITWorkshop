@@ -49,7 +49,7 @@ This project is mostly coded in JetBrains Intellij IDEA Code editor.
 ## 🚀 About Me
 
 
-# Hi, I'm Katherine! 👋
+# Hi, I'm Sudipto! 👋
 
 I'm a Student learning Computer Science...
 
