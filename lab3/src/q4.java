@@ -1,47 +1,45 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class q4 {
-    public static void findClosestSumToZero(int[] arr) {
+
+    static int ClosestSum(int[] arr, int n) {
         Arrays.sort(arr);
-        int closestSum = 0;
-        int num1 = 0, num2 = 0;
+        int left = 0;
+        int right = n - 1;
+        int minSum = Integer.MAX_VALUE;
+        int ClosestSum = 0;
+        int num1=0;
+        int num2=0;
 
-        if (arr[0] >= 0) {
-            closestSum = arr[0] + arr[1];
-            num1 = arr[0];
-            num2 = arr[1];
-        } else if (arr[0] < 0) {
-            int maxNegative = Integer.MIN_VALUE;
-            int minPositive = Integer.MAX_VALUE;
-
-            for (int num : arr) {
-                if (num < 0 && num > maxNegative) {
-                    maxNegative = num;
-                }
-                if (num > 0 && num < minPositive) {
-                    minPositive = num;
-                }
+        while (left < right) {
+            int sum = arr[left] + arr[right];
+            if (Math.abs(sum) < Math.abs(minSum)) {
+                ClosestSum = arr[left] + arr[right];
+                num1=arr[left];
+                num2=arr[right];
             }
-            closestSum = maxNegative + minPositive;
-            num1 = maxNegative;
-            num2 = minPositive;
-        }
 
-        System.out.println("Closest sum to zero: " + closestSum);
+            if (sum < 0)
+                left++;
+            else
+                right--;
+        }
+        System.out.println("Closest sum to zero: " + ClosestSum);
         System.out.println("Numbers: " + num1 + " and " + num2);
+        return 0;
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the number of elements in the array: ");
-        int n = scanner.nextInt();
-
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = sc.nextInt();
         int[] arr = new int[n];
-        System.out.println("Enter the array elements:");
         for (int i = 0; i < n; i++) {
-            arr[i] = scanner.nextInt();
+            System.out.print("Enter element " + (i + 1) + ": ");
+            arr[i] = sc.nextInt();
         }
-        findClosestSumToZero(arr);
+        ClosestSum(arr,n);
+        //System.out.println("The sum closest to 0 is: " + ClosestSum(arr, n));
+        sc.close();
     }
 }
