@@ -1,5 +1,6 @@
- import java.util.Scanner;
- import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.ArrayList;
+
 class Song {
     int songId;
     String songTitle;
@@ -41,20 +42,36 @@ class Song {
         System.out.println("Song played: " + songTitle);
     }
 
-    ArrayList<String> playlist = new ArrayList<String>();
+    static ArrayList<String> playlist = new ArrayList<String>();
 
     public void addToPlaylist(int id) {
+        System.out.println("Song added to playlist: " + songTitle);
         playlist.add(songTitle);
+        System.out.println();
+        System.out.println("Songs in the playlist are: ");
+        for (String iterator : playlist){
+            int a = 1;
+            System.out.println("Song "+a+": "+iterator);
+            a++;
+        }
     }
 
     public void removeFromPlaylist(int id) {
+        System.out.println("Song removed from playlist: " + songTitle);
         playlist.remove(songTitle);
+        System.out.println("Songs in the playlist are: ");
+        for (String iterator : playlist){
+            int a = 1;
+            System.out.println("Song "+a+": "+iterator);
+            a++;
+        }
     }
 
     public int getSongId() {
         return songId;
     }
 }
+
 public class MusicManagementSystem {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
