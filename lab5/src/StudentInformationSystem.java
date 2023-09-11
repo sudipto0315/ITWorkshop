@@ -15,7 +15,7 @@ class Student {
         studentAge = 0;
         studentMajor = "";
         studentGPA = 0.0f;
-        totalStudentsEnrolled = 0;
+        totalStudentsEnrolled ++;
     }
 
     public void setDetails(int id, String name, int age, String major, float GPA) {
@@ -24,7 +24,6 @@ class Student {
         studentAge = age;
         studentMajor = major;
         studentGPA = GPA;
-        totalStudentsEnrolled = totalStudentsEnrolled + 1;
     }
 
     public void getDetails(int id) {
